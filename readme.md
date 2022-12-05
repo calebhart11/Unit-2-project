@@ -1,4 +1,4 @@
-#Whats for dinner?
+Whats for dinner?
 My app will give the user access to an assortment of restaurants, with show pages for each restaurant, and the ability to add a restaurant to a list of favorites or restaurants the user wants to try. Also there will be an option to click a button that will generate a random restaurant to try.
 
 ##Site Plan
