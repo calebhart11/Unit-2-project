@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<header>
+    <a href="/restaurants/new"><button id="new-button"></button>Add New Restaurant</a>
+    <a href="/restaurants/:id"><button id="random-button"></button>What's For Dinner</a>
+    <a href="/restaurants/favorites"><button id="fav-button"></button>My Favorites</a>
+</header>
+
+<body>
+    <h1>restaurants</h1>
+    <% for(let i = 0; i < restaurantsData.length; i++) { %> 
+        <img src="<%= restaurantsData[i].image %>" alt="">
+        <a href="/restaurants/ <%= [i] %> "></a>
+        <%= restaurantsData[i].name %>
+    <% } %> 
+    
+    
+</body>
+</html>
