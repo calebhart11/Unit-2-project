@@ -4,6 +4,7 @@ const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
 const { urlencoded } = require('express')
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 // const restaurantsData = require('./models/restuarants')
 
@@ -56,6 +57,7 @@ app.use(morgan('dev'))
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 app.use('/static', express.static('public'))
+app.use(bodyParser())
 
 //home route
 app.get('/', (req, res) => {
@@ -63,9 +65,11 @@ app.get('/', (req, res) => {
 })
 //SEED route
 app.get('/restaurants/seed', (req, res) =>{
+    Restaurant.deleteMany({}, (err, data)=> {
     Restaurant.create(restaurantsData)
     .then((createdRestaurants) => {
         res.json(createdRestaurants)
+    })
     })
 })
 
@@ -77,10 +81,65 @@ app.get('/restaurants', (req, res)=> {
     console.log('are you working?')
     })
 });
+//New
 app.get('/restaurants/new', (req, res) => {
     res.render('new.ejs')
-})
+});
 
+//delete
+app.delete('/restaurants/:id', (req, res) => {
+   const id = req.params.id
+   Restaurant.findByIdAndDelete(id, (err, restaurant) => {
+    res.redirect('/restaurants')
+   })
+    
+})
+//create
+app.post('/restaurants', (req, res)=> {
+    req.body.haveITried = req.body.haveITried === 'on' ? true : false
+    Restaurant.create(req.body, (err, restaurant) => {
+        req.body = {
+            ...req.body,
+          restaurantsData:  {
+                name: req.body.name,
+                image: req.body.image,
+                info: req.body.info,
+                price: req.body.price,
+                haveITried: req.body.haveITried
+
+            }
+        }
+        restaurantsData.push(req.body),
+        function(restaurant) {
+            restaurantsData.push(restaurant)
+        }
+        console.log(req.body)
+        res.redirect('/restaurants')
+    })
+})
+//post to favorites page
+app.post('/restaurants/favorites', (req, res)=> {
+    req.body.haveITried = req.body.haveITried === 'on' ? true : false
+    Restaurant.create(req.body, (err, restaurant) => {
+        req.body = {
+            ...req.body,
+          restaurantsData:  {
+                name: req.body.name,
+                image: req.body.image,
+                info: req.body.info,
+                price: req.body.price,
+                haveITried: req.body.haveITried
+
+            }
+        }
+        restaurantsData.push(req.body),
+        function(restaurant) {
+            restaurantsData.push(restaurant)
+        }
+        console.log(req.body)
+        res.redirect('/restaurants')
+    })
+})
 //show
 app.get('/restaurants/:id', (req, res) => {
     const id = req.params.id
@@ -93,7 +152,7 @@ app.get('/restaurants/:id', (req, res) => {
             }
         })
     })
-})
+});
 
 //server listener
 const PORT = process.env.PORT || 3000

@@ -14,6 +14,9 @@
     <label>
    Have I Tried:  <input type="checkbox" name="haveITried" <%= restaurant.haveITried ? "checked" : "" %> />
 </label><br>
+    <form action="/restaurants/<%= restaurant.id %>?_method=DELETE" method="POST">
+    <input type="submit" value="delete"/>
+    </form>
     <a href="/restaurants"><button>Back</button></a>
 </body>
 </html>
