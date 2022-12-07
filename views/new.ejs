@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %> 
+<body>
+    <div class="new-page">
+<h1>Add A New Restaurant</h1>
+<form action="/restaurants" method="post">
+    <label>
+    Name: <input type="text" name="name" placeholder="Enter Name Here">
+    </label>
+    <label>
+        Choose A Picture:<input type="file" name="image" accept="image/png" placeholder="Submit A File Here">
+    </label>
+    <label>
+        Info: <input type="text" name="info" placeholder="Add Info Here">
+    </label>
+    <label>
+        Price Range: <input type="text" name="price" placeholder="Add Price Range">
+    </label>
+    <label>
+        Have I Tried: <input type="checkbox" name="haveITried">
+    </label>
+    <input type="submit" value="Add Your Restaurant">
+
+</form>
+    </div>
+</body>
+</html>

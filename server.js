@@ -77,6 +77,9 @@ app.get('/restaurants', (req, res)=> {
     console.log('are you working?')
     })
 });
+app.get('/restaurants/new', (req, res) => {
+    res.render('new.ejs')
+})
 
 //show
 app.get('/restaurants/:id', (req, res) => {
