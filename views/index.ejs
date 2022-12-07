@@ -11,8 +11,10 @@
     <h1>restaurants</h1>
     <% for(let i = 0; i < restaurantsData.length; i++) { %> 
         <img src="<%= restaurantsData[i].image %>" alt="">
-        <a href="/restaurants/ <%= [i] %> "></a>
-        <%= restaurantsData[i].name %>
+        <a href="/restaurants/<%= [i] %> ">
+            <%= restaurantsData[i].name %>
+        </a>
+         
     <% } %> 
     
     
