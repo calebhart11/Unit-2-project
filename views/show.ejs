@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %> 
+<header>
+    <a href="/restaurants/new"><button id="new-button"></button>Add New Restaurant</a>
+    <a href="/restaurants/:id"><button id="random-button"></button>What's For Dinner?</a>
+    <a href="/restaurants/favorites"><button id="fav-button"></button>My Favorites</a>
+</header>
+<body>
+    <img src="<%= restaurant.image %>" alt="">
+    <h1><%= restaurant.name %></h1>
+    <h2><%= restaurant.info %></h2>
+    <h3><%= restaurant.price %> </h3>
+    <label>
+   Have I Tried:  <input type="checkbox" name="haveITried" <%= restaurant.haveITried ? "checked" : "" %> />
+</label><br>
+    <a href="/restaurants"><button>Back</button></a>
+</body>
+</html>

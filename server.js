@@ -82,7 +82,13 @@ app.get('/restaurants', (req, res)=> {
 app.get('/restaurants/:id', (req, res) => {
     const id = req.params.id
     Restaurant.findById(id, (err, restaurant) => {
-        res.send('show route works, now make ejs')
+        res.render('show.ejs', {
+            restaurant: restaurantsData[req.params.id],
+            index: req.params.id,
+            getOne: function(index) {
+                return restaurantsData[index]
+            }
+        })
     })
 })
 
