@@ -66,7 +66,7 @@ app.get('/', (req, res) => {
 //SEED route
 app.get('/restaurants/seed', (req, res) =>{
     Restaurant.deleteMany({}, (err, data)=> {
-    Restaurant.create(restaurants)
+    Restaurant.create(restaurantsData)
     .then((createdRestaurants) => {
         res.json(createdRestaurants)
     })
@@ -93,6 +93,14 @@ app.delete('/restaurants/:id', async (req, res) => {
    if(deletedRestaurant){
     res.redirect('/restaurants')
    }
+   })
+
+   //update route
+   app.put('/restaurants/:id', (req, res) => {
+    req.body.haveITried = req.body.haveITried === 'on' ? true : false
+    Restaurant.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedRestaurant) => {
+        res.redirect(`/restaurants/${req.params.id}`)
+    })
    })
     
 
@@ -131,7 +139,7 @@ app.post('/restaurants/try', (req, res)=> {
 app.get('/restaurants/:id/edit', (req, res) => {
     const id = req.params.id
     Restaurant.findById(id, (err, foundRestaurant) =>{
-        res.send('edit route works')
+        res.render('edit.ejs', {restaurant: foundRestaurant})
     })
 })
 

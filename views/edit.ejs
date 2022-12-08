@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %> 
+<body>
+    <div class="new-page">
+<h1>Edit <%= restaurant.name %> </h1>
+<form action="/restaurants/<%= restaurant._id %>?_method=PUT" method="post">
+    <label>
+    Name: <input type="text" name="name" placeholder="Enter Name Here">
+    </label>
+    <label>
+        Choose A Picture:<input type="url" name="image" accept="image/png" placeholder="Submit An Image Here">
+    </label>
+    <label>
+        Info: <input type="text" name="info" placeholder="Add Info Here">
+    </label>
+    <label>
+        Price Range: <input type="text" name="price" placeholder="Add Price Range">
+    </label>
+    <label>
+        Have I Tried: <input type="checkbox" name="haveITried">
+    </label> <br>
+    <input type="submit" value="Edit Your Restaurant"><br>
+    <a href="/restaurants"><button>Back</button></a>
+</form>
+    </div>
+</body>
+</html>
