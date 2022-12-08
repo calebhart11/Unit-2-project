@@ -108,12 +108,33 @@ app.post('/restaurants', (req, res)=> {
 //post to favorites page
 app.post('/restaurants/favorites', (req, res)=> {
     req.body.haveITried = req.body.haveITried === 'on' ? true : false
-    Restaurant.create(req.body, (err, restaurant) => {
+    Restaurant.findByIdAndUpdate(req.body, (err, restaurant) => {
+        
+        res.redirect('/restaurants/favorites')
         
         
         //res.redirect('/restaurants/favorites')
     })
 })
+
+//post to try page
+app.post('/restaurants/try', (req, res)=> {
+    req.body.haveITried = req.body.haveITried === 'on' ? true : false
+    Restaurant.create(req.body, (err, restaurant) => {
+        res.redirect('/restaurants/try')
+        
+        
+        //res.redirect('/restaurants/favorites')
+    })
+})
+//edit route
+app.get('/restaurants/:id/edit', (req, res) => {
+    const id = req.params.id
+    Restaurant.findById(id, (err, foundRestaurant) =>{
+        res.send('edit route works')
+    })
+})
+
 //show
 app.get('/restaurants/:id', (req, res) => {
     const id = req.params.id
