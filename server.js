@@ -5,7 +5,7 @@ const morgan = require('morgan')
 const methodOverride = require('method-override')
 const { urlencoded } = require('express')
 const bodyParser = require('body-parser')
-const Restaurant = require('./models/restuarants')
+const Restaurant = require('./models/restaurants')
 const RestaurantsRouter = require('./controllers/restaurants-router')
 
 

@@ -1,6 +1,6 @@
 //import dependencies
 const express = require('express')
-const Restaurant = require('../models/restuarants')
+const Restaurant = require('../models/restaurants')
 
 //create router
 const router = express.Router()

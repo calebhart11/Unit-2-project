@@ -1,8 +1,15 @@
-const res = require('express/lib/response')
-const mongoose = require('./connection')
-const Restaurant = require('./restuarants')
+///////////////////////////////////////
+// Import Dependencies
+///////////////////////////////////////
+const mongoose = require("./connection");
+const Restaurant = require("./restaurants")
 
-mongoose.connection.on('open', () => {
+///////////////////////////////////////////
+// Seed Code
+////////////////////////////////////////////
+
+// Make sure code is not run till connected
+mongoose.connection.on("open", () => {
     const restaurantsData = [
         {name: 'Chipotle', image: 'https://i.imgur.com/8kSimNx.png', info: 'Chipotle Mexican Grill, Inc. , often known simply as Chipotle, is an American chain of fast casual restaurants specializing in bowls, tacos and Mission burritos made to order in front of the customer.', price: '$', haveITried: false},
         {name: "Carl's Jr.", image:'https://i.imgur.com/cHp5F4D.jpg', info: "Carl's Jr. Restaurants LLC is an American fast food restaurant chain operated by CKE Restaurant Holdings, Inc., with franchisees in North & South America, Asia, Oceania, Europe and Africa.", price: "$", haveITried: false},
@@ -13,15 +20,22 @@ mongoose.connection.on('open', () => {
         {name: "Raising Cane's", image: 'https://i.imgur.com/hx1e9qz.png', info: "Raising Cane's Chicken Fingers is an American fast-food restaurant chain specializing in chicken fingers founded in Baton Rouge, Louisiana by Todd Graves and Craig Silvey in 1996.", price: "$", haveITried: false},
         {name: "Trapper's Sushi", image: 'https://i.imgur.com/lj0pUDF.png', info: "Local Japanese chain featuring cooked dishes, specialty rolls & an all-you-can-eat sushi deal.", price: "$$", haveITried: false},
         {name: "Jersey Mike's Subs", image: 'https://i.imgur.com/SKmKIoU.png', info: "Jersey Mike's Subs makes a Sub Above - fresh sliced, authentic Northeast-American style sub sandwiches on fresh baked bread. Subs are prepared Mike's Way.", price: '$$', haveITried: false}
-    ]
-    Restaurant.deleteMany({}, (err, data) => {
-        Restaurant.create(restaurantsData, (err, data) => {
-            res.json(data)
-            console.log("--------Restaurants created----------");
-            console.log(data);
-            console.log("--------Restaurants created----------");
-        })
-        
-            mongoose.connection.close()
-        })
-        })
+    ];
+
+
+  // Run any database queries in this function
+  
+  // Delete all fruits
+  Restaurant.remove({}, (err, data) => {
+    // Seed Starter Fruits
+    Restaurant.create(restaurantsData, (err, data) => {
+      // log the create fruits to confirm
+      console.log("--------FRUITS CREATED----------");
+      console.log(data);
+      console.log("--------FRUITS CREATED----------");
+
+      // close the DB connection
+      mongoose.connection.close();
+    });
+  });
+});
