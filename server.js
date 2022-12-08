@@ -66,7 +66,7 @@ app.get('/', (req, res) => {
 //SEED route
 app.get('/restaurants/seed', (req, res) =>{
     Restaurant.deleteMany({}, (err, data)=> {
-    Restaurant.create(restaurantsData)
+    Restaurant.create(restaurants)
     .then((createdRestaurants) => {
         res.json(createdRestaurants)
     })
@@ -76,8 +76,8 @@ app.get('/restaurants/seed', (req, res) =>{
 //index route
 app.get('/restaurants', (req, res)=> {
     Restaurant.find({})
-    .then((restaurantsData) => {
-    res.render('index.ejs', {restaurantsData})
+    .then((restaurants) => {
+    res.render('index.ejs', {restaurants})
     console.log('are you working?')
     })
 });
@@ -87,68 +87,43 @@ app.get('/restaurants/new', (req, res) => {
 });
 
 //delete
-app.delete('/restaurants/:id', (req, res) => {
-   const id = req.params.id
-   Restaurant.findByIdAndDelete(id, (err, restaurant) => {
+app.delete('/restaurants/:id', async (req, res) => {
+   const _id = req.params.id
+   const deletedRestaurant =  await Restaurant.findByIdAndDelete(req.params.id)
+   if(deletedRestaurant){
     res.redirect('/restaurants')
+   }
    })
     
-})
+
 //create
 app.post('/restaurants', (req, res)=> {
     req.body.haveITried = req.body.haveITried === 'on' ? true : false
     Restaurant.create(req.body, (err, restaurant) => {
-        req.body = {
-            ...req.body,
-          restaurantsData:  {
-                name: req.body.name,
-                image: req.body.image,
-                info: req.body.info,
-                price: req.body.price,
-                haveITried: req.body.haveITried
-
-            }
-        }
-        restaurantsData.push(req.body),
-        function(restaurant) {
-            restaurantsData.push(restaurant)
-        }
         console.log(req.body)
         res.redirect('/restaurants')
+        })
     })
-})
+
 //post to favorites page
 app.post('/restaurants/favorites', (req, res)=> {
     req.body.haveITried = req.body.haveITried === 'on' ? true : false
     Restaurant.create(req.body, (err, restaurant) => {
-        req.body = {
-            ...req.body,
-          restaurantsData:  {
-                name: req.body.name,
-                image: req.body.image,
-                info: req.body.info,
-                price: req.body.price,
-                haveITried: req.body.haveITried
-
-            }
-        }
-        restaurantsData.push(req.body),
-        function(restaurant) {
-            restaurantsData.push(restaurant)
-        }
-        console.log(req.body)
-        res.redirect('/restaurants')
+        
+        
+        //res.redirect('/restaurants/favorites')
     })
 })
 //show
 app.get('/restaurants/:id', (req, res) => {
     const id = req.params.id
     Restaurant.findById(id, (err, restaurant) => {
+        console.log(restaurant, "this is the found restaurant")
         res.render('show.ejs', {
-            restaurant: restaurantsData[req.params.id],
-            index: req.params.id,
+            restaurant,
+            index: restaurant._id,
             getOne: function(index) {
-                return restaurantsData[index]
+                return restaurant[index]
             }
         })
     })

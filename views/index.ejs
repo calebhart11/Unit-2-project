@@ -2,17 +2,18 @@
 <html lang="en">
 <%- include('./partials/head.ejs') %>
 <header>
-    <a href="/restaurants/new"><button id="new-button"></button>Add New Restaurant</a>
-    <a href="/restaurants/:id"><button id="random-button"></button>What's For Dinner</a>
-    <a href="/restaurants/favorites"><button id="fav-button"></button>My Favorites</a>
+    <a href="/restaurants/new"><button id="new-button">Add New Restaurant</button></a>
+    <a href="/restaurants/:id"><button id="random-button">What's For Dinner?</button></a>
+    <a href="/restaurants/favorites"><button id="fav-button">My Favorites</button></a>
+    <a href="/restaurants/try"><button id="try-button">My Try List</button></a>
 </header>
 
 <body>
     <h1>restaurants</h1>
-    <% for(let i = 0; i < restaurantsData.length; i++) { %> 
-        <img src="<%= restaurantsData[i].image %>" alt="">
-        <a href="/restaurants/<%= [i] %> ">
-            <%= restaurantsData[i].name %>
+    <% for(let i = 0; i < restaurants.length; i++) { %> 
+        <img src="<%= restaurants[i].image %>" alt="">
+        <a href="/restaurants/<%= restaurants[i]._id %> ">
+            <%= restaurants[i].name %>
         </a>
          
     <% } %> 
