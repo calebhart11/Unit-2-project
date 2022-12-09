@@ -1,0 +1,120 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    padding-right: 0px;
+}
+.index-page{
+    margin-top: 0;
+    margin-left: 0;
+    /* padding: 5px;
+     display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(3, 1fr); */
+
+    background-image: url(https://images.unsplash.com/photo-1587015566802-5dc157c901cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDh8fGZvb2QlMjBiYWNrZ3JvdW5kc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60);
+    background-color: rgba(0,0,0,.4);
+          
+}
+
+header{
+    margin-top: 0px;
+    margin-bottom: 5px;
+    justify-content: center;
+    height: 100px;
+    width: 1415px;
+    /* background-color: aqua; */
+    background-size: contain;
+    background-image: url(https://images.unsplash.com/photo-1587015566802-5dc157c901cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDh8fGZvb2QlMjBiYWNrZ3JvdW5kc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60);
+}
+#header-h1{
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    color: azure;
+}
+#restaurant-img{
+    border-radius: 5px;
+     display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center; 
+    color: aliceblue;
+}
+#restaurant-name{
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+a:link {
+    color: aliceblue;
+    text-decoration: none;
+    text-align: center;
+}
+a:visited {
+    color:aliceblue;
+    text-decoration: none;
+    text-align: center;
+}
+#new-button{
+    margin-left: 12%;
+    background-color: red;
+    padding: 5px;
+    border-radius: 7px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+#new-button:hover {
+    background-color: aliceblue;
+    border-color:red ;
+}
+#try-button{
+    margin-left: 14%;
+    background-color: red;
+    padding: 5px;
+    border-radius: 7px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+#try-button:hover{
+    background-color: aliceblue;
+    border-color:red ; 
+}
+#fav-button{
+    margin-left: 14%;
+    margin-bottom:  0px;
+    background-color: red;
+    padding: 5px;
+    border-radius: 7px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+#fav-button:hover{
+    background-color: aliceblue;
+    border-color:red ;
+}
+#random-button{
+    margin-left: 14%;
+    background-color: red;
+    padding: 5px;
+    border-radius: 7px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+#random-button:hover{
+    background-color: aliceblue;
+    border-color:red ;
+}
+#logout-button{
+    margin-left: 14%;
+    background-color: red;
+    padding: 5px;
+    border-radius: 7px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+#logout-button:hover{
+    background-color: aliceblue;
+    border-color: red;
+}

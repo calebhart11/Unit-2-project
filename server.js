@@ -7,6 +7,10 @@ const { urlencoded } = require('express')
 const bodyParser = require('body-parser')
 const Restaurant = require('./models/restaurants')
 const RestaurantsRouter = require('./controllers/restaurants-router')
+const UserRouter = require('./controllers/user')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')
+
 
 
 
@@ -22,10 +26,17 @@ app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 app.use('/static', express.static('public'))
 app.use('/restaurants', RestaurantsRouter)
+app.use('/user', UserRouter)
+app.use(session({
+    secret: process.env.SECRET,
+    store: MongoStore.create({mongoUrl: process.env.DATABASE_URL }),
+    saveUninitialized: true,
+    resave: false,
+}))
 
 //home route
 app.get('/', (req, res) => {
-    res.send('<h1>The server is running</h1>')
+    res.render('first.ejs')
 })
 
 //server listener

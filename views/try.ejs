@@ -2,6 +2,7 @@
 <html lang="en">
 <%- include('./partials/head.ejs') %> 
 <body>
+    <div class="try-page">
     <article>
     <% for(let i = 0; i < restaurants.length; i++)  { %>
         <img src="<%= restaurants[i].image %>">
@@ -11,6 +12,6 @@
     
 <% } %> 
     </article>
-    
+    </div>
 </body>
 </html>

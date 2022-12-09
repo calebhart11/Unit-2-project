@@ -8,6 +8,7 @@
     
 </header>
 <body>
+    <div class="show-page">
     <img src="<%= restaurant.image %>" alt="">
     <h1><%= restaurant.name %></h1>
     <h2><%= restaurant.info %></h2>
@@ -22,5 +23,6 @@
     <a href="/restaurants/<%= restaurant._id %>/edit"><input type="submit" value="Edit Restaurant"></a>
 <a href="/restaurants/try"><input type="submit" value="Add To Try List"></a>
 <a href="/restaurants/favorites"><input type="submit" value="Add To Favorites"></a>
+</div>
 </body>
 </html>

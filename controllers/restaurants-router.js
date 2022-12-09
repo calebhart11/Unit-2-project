@@ -5,6 +5,18 @@ const Restaurant = require('../models/restaurants')
 //create router
 const router = express.Router()
 
+///////////////////////////////////////
+// Router Middleware
+////////////////////////////////////////
+// Authorization Middleware
+router.use((req, res, next) => {
+    if (req.session.loggedIn) {
+      next();
+    } else {
+      res.redirect("/user/login");
+    }
+  });
+
 //routes
 //SEED route
 router.get('/seed', (req, res) =>{

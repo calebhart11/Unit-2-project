@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head.ejs') %>
+<%- include('partials/head.ejs') %> 
 <header>
+    <div class="header">
+       <div id="header-h1"><h1>What's For Dinner?</h1></div>
     <a href="/restaurants/new"><button id="new-button">Add New Restaurant</button></a>
     <a href="/restaurants/:id"><button id="random-button">What's For Dinner?</button></a>
     <a href="/restaurants/favorites"><button id="fav-button">My Favorites</button></a>
     <a href="/restaurants/try"><button id="try-button">My Try List</button></a>
+    <a href="/user/logout"><button id="logout-button">Logout</button></a>
+
+    </div>
 </header>
 
 <body>
-    <h1>restaurants</h1>
+    <div class="index-page">
     <% for(let i = 0; i < restaurants.length; i++) { %> 
-        <img src="<%= restaurants[i].image %>" alt="">
-        <a href="/restaurants/<%= restaurants[i]._id %> ">
+       <div id="restaurant-img"><img src="<%= restaurants[i].image %>" style="width: 300px; height: 200px; ;border-radius: 8px;"></div>
+       <div id="restaurant name"><a href="/restaurants/<%= restaurants[i]._id %>"></div>
             <%= restaurants[i].name %>
         </a>
          
     <% } %> 
     
-    
+    </div> 
 </body>
 </html>
