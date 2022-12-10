@@ -32,25 +32,26 @@ router.get("/login", (req, res) => {
 })
 
 router.post("/login", (req, res) => {
-    // get the data from the request body
-    const { username, password } = req.body;
-    User.findOne({ username }, (err, user) => {
-      // checking if userexists
-      if (!user) {
-        res.send("user doesn't exist");
+  // get the data from the request body
+  const { username, password } = req.body;
+  User.findOne({ username }, (err, user) => {
+    // checking if user exists
+    if (!user) {
+      res.send("user doesn't exist");
+    } else {
+      //check if password matches
+      const result = bcrypt.compareSync(password, user.password);
+      if (result) {
+        req.session.username = username
+        req.session.loggedIn = true
+        res.redirect("/restaurants");
       } else {
-        //check if password matches
-        const result = bcrypt.compareSync(password, user.password);
-        if (result) {
-          req.session.username = username
-          req.session.loggedIn = true
-          res.redirect("/restaurants");
-        } else {
-          res.send("wrong password");
-        }
+        res.send("wrong password");
       }
-    });
+    }
   });
+});
+
   router.get('/logout', (req, res) =>{
     req.session.destroy((err) => {
       res.redirect('/')

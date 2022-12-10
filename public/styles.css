@@ -1,27 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body{
-    margin: 0px;
-    padding: 0px;
-    padding-right: 0px;
+    
+    background-color: grey;
 }
 .index-page{
-    margin-top: 0;
-    margin-left: 0;
-    /* padding: 5px;
-     display: grid;
-    gap: 5px;
-    grid-template-columns: repeat(3, 1fr); */
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 0 auto;
+    padding: 20px auto;
 
     background-image: url(https://images.unsplash.com/photo-1587015566802-5dc157c901cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDh8fGZvb2QlMjBiYWNrZ3JvdW5kc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60);
     background-color: rgba(0,0,0,.4);
           
 }
+.index-card{
+    display: flex;
+    flex-direction: column;
+    /* border:solid 2px red; */
+    width: 30%;
+    margin:10px 0 ;
+    align-items: center;
+    align-self: flex-start;
+    
+}
 
-header{
+
+.header{
+    
     margin-top: 0px;
     margin-bottom: 5px;
-    justify-content: center;
+    padding: 15px 0 0 0;
+    /* justify-content: center; */
     height: 100px;
-    width: 1415px;
+    width: 1430px;
     /* background-color: aqua; */
     background-size: contain;
     background-image: url(https://images.unsplash.com/photo-1587015566802-5dc157c901cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDh8fGZvb2QlMjBiYWNrZ3JvdW5kc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60);
@@ -29,22 +46,24 @@ header{
 #header-h1{
     margin-top: 0px;
     margin-left: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
     text-align: center;
     color: azure;
 }
 #restaurant-img{
     border-radius: 5px;
-     display: grid;
+    /* box-shadow: 10px 10px 5px gray; */
+     /* display: grid;
     gap: 5px;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: center; 
+    grid-template-columns: repeat(3, 1fr); */
+     
     color: aliceblue;
 }
 #restaurant-name{
-    display: grid;
+    text-align: center;
+    /* display: grid;
     gap: 5px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); */
 
 }
 a:link {
@@ -58,63 +77,70 @@ a:visited {
     text-align: center;
 }
 #new-button{
-    margin-left: 12%;
+    margin-top: 5px;
+    margin-left: 10%;
     background-color: red;
     padding: 5px;
     border-radius: 7px;
-    transition-duration: 0.4s;
+    transition-duration: 0.7s;
     cursor: pointer;
 }
 #new-button:hover {
+    background-image: linear-gradient(to right, red 10%, orange 51%, yellow 100%);
+    background-position: right center;
     background-color: aliceblue;
-    border-color:red ;
+    border-color:grey ;
 }
 #try-button{
-    margin-left: 14%;
+    margin-left: 10%;
     background-color: red;
     padding: 5px;
     border-radius: 7px;
-    transition-duration: 0.4s;
+    transition-duration: 0.7s;
     cursor: pointer;
 }
 #try-button:hover{
+    background-image: linear-gradient(to right, red 10%, orange 51%, yellow 100%);
     background-color: aliceblue;
-    border-color:red ; 
+    border-color:grey ; 
 }
 #fav-button{
-    margin-left: 14%;
+    margin-left: 10%;
     margin-bottom:  0px;
     background-color: red;
     padding: 5px;
     border-radius: 7px;
-    transition-duration: 0.4s;
+    transition-duration: 0.7s;
     cursor: pointer;
 }
 #fav-button:hover{
+    background-image: linear-gradient(to right, red 10%, orange 51%, yellow 100%);
     background-color: aliceblue;
-    border-color:red ;
+    border-color:grey ;
 }
 #random-button{
-    margin-left: 14%;
+    margin-left: 10%;
     background-color: red;
     padding: 5px;
     border-radius: 7px;
-    transition-duration: 0.4s;
+    transition-duration: 0.7s;
     cursor: pointer;
 }
 #random-button:hover{
+    background-image: linear-gradient(to right, red 10%, orange 51%, yellow 100%);
     background-color: aliceblue;
-    border-color:red ;
+    border-color:grey ;
 }
 #logout-button{
-    margin-left: 14%;
+    margin-left: 10%;
     background-color: red;
     padding: 5px;
     border-radius: 7px;
-    transition-duration: 0.4s;
+    transition-duration: 0.7s;
     cursor: pointer;
 }
 #logout-button:hover{
+    background-image: linear-gradient(to right, red 10%, orange 51%, yellow 100%);
     background-color: aliceblue;
-    border-color: red;
+    border-color: grey;
 }

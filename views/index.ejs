@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('partials/head.ejs') %> 
-<header>
+<!-- <header>
     <div class="header">
-       <div id="header-h1"><h1>What's For Dinner?</h1></div>
-    <a href="/restaurants/new"><button id="new-button">Add New Restaurant</button></a>
-    <a href="/restaurants/:id"><button id="random-button">What's For Dinner?</button></a>
-    <a href="/restaurants/favorites"><button id="fav-button">My Favorites</button></a>
-    <a href="/restaurants/try"><button id="try-button">My Try List</button></a>
-    <a href="/user/logout"><button id="logout-button">Logout</button></a>
+        <div id="header-h1"><h1>What's For Dinner?</h1></div>
+        <a class="a-tags" href="/restaurants/new"><button id="new-button">Add New Restaurant</button></a>
+        <a class="a-tags" href="/restaurants/:id"><button id="random-button">What's For Dinner?</button></a>
+        <a class="a-tags" href="/restaurants/favorites"><button id="fav-button">My Favorites</button></a>
+        <a class="a-tags" href="/restaurants/try"><button id="try-button">My Try List</button></a>
+        <a class="a-tags" href="/user/logout"><button id="logout-button">Logout</button></a>
 
     </div>
-</header>
+</header> -->
 
 <body>
+    <div class="header">
+        <div id="header-h1"><h1>What's For Dinner?</h1></div>
+        <a class="a-tags" href="/restaurants/new"><button id="new-button">Add New Restaurant</button></a>
+        <a class="a-tags" href="/restaurants/:id"><button id="random-button">What's For Dinner?</button></a>
+        <a class="a-tags" href="/restaurants/favorites"><button id="fav-button">My Favorites</button></a>
+        <a class="a-tags" href="/restaurants/try"><button id="try-button">My Try List</button></a>
+        <a class="a-tags" href="/user/logout"><button id="logout-button">Logout</button></a>
+
+    </div>
     <div class="index-page">
     <% for(let i = 0; i < restaurants.length; i++) { %> 
-       <div id="restaurant-img"><img src="<%= restaurants[i].image %>" style="width: 300px; height: 200px; ;border-radius: 8px;"></div>
+       <div class="index-card">
+        <div id="restaurant-img"><img src="<%= restaurants[i].image %>" style="width: 300px; height: 200px; ;border-radius: 8px;"></div>
        <div id="restaurant name"><a href="/restaurants/<%= restaurants[i]._id %>"></div>
             <%= restaurants[i].name %>
         </a>
-         
+         </div>
     <% } %> 
     
     </div> 
