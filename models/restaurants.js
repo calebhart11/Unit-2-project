@@ -8,7 +8,8 @@ const restaurantsSchema = new Schema({
     image: String,
     info: String,
     price: String,
-    haveITried: Boolean
+    haveITried: Boolean,
+    username: String
 })
 
 const Restaurant = model('restaurants', restaurantsSchema)

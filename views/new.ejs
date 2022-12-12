@@ -2,8 +2,9 @@
 <html lang="en">
 <%- include('./partials/head.ejs') %> 
 <body>
-    <div class="new-page">
-<h1>Add A New Restaurant</h1>
+    
+<h1 id="new-h1">Add A New Restaurant</h1>
+<div class="new-page">
 <form action="/restaurants" method="post">
     <label>
     Name: <input type="text" name="name" placeholder="Enter Name Here">
@@ -21,7 +22,7 @@
         Have I Tried: <input type="checkbox" name="haveITried">
     </label> <br>
     <input type="submit" value="Add Your Restaurant"><br>
-    <a href="/restaurants"><button>Back</button></a>
+    <a href="/restaurants"><button id="back-button">Back</button></a>
 </form>
     </div>
 </body>

@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head.ejs') %> 
-<header>
+ <!-- <header>
     <h1>Great Choice</h1>
-    <a href="/restaurants/new"><button id="new-button">Add New Restaurant</button></a>
-    <a href="/restaurants/:id"><button id="random-button">What's For Dinner?</button></a>
-    <a href="/restaurants/favorites"><button id="fav-button">My Favorites</button></a>
+    <a class="a-tags" href="/restaurants/new"><button id="new-button">Add New Restaurant</button></a>
+    <a class="a-tags" href="/restaurants/:id"><button id="random-button">What's For Dinner?</button></a>
+     <a href="/restaurants/favorites"><button id="fav-button">My Favorites</button></a> 
+    <a class="a-tags" href="/user/logout"><button id="logout-button">Logout</button></a> -->
+
     
-</header>
+<!--</header>  -->
 <body>
+    <div class="header">
+        <div id="header-h1"><h1>Great Choice!</h1></div>
+        <a class="a-tags" href="/restaurants/new"><button id="new-button">Add New Restaurant</button></a>
+        <a class="a-tags" href="/restaurants/random"><button id="random-button">What's For Dinner?</button></a>
+        <!-- <a class="a-tags" href="/restaurants/favorites"><button id="fav-button">My Favorites</button></a> -->
+        <!-- <a class="a-tags" href="/restaurants/try"><button id="try-button">My Try List</button></a> -->
+        <a class="a-tags" href="/user/logout"><button id="logout-button">Logout</button></a>
+
+    </div>
     <div class="show-page">
-    <img src="<%= restaurant.image %>" alt="">
+    <img class="show-image" src="<%= restaurant.image %>" alt="">
     <h1><%= restaurant.name %></h1>
     <h2><%= restaurant.info %></h2>
     <h3><%= restaurant.price %> </h3>
@@ -18,12 +29,12 @@
    Have I Tried:  <input type="checkbox" name="haveITried" <%= restaurant.haveITried ? "checked" : "" %> />
 </label><br>
     <form action="/restaurants/<%= index %>?_method=DELETE" method="POST">
-    <input type="submit" value="delete"/>
-    </form>
-    <a href="/restaurants"><button>Back</button></a>
-    <a href="/restaurants/<%= restaurant._id %>/edit"><input type="submit" value="Edit Restaurant"></a>
-<a href="/restaurants/try"><input type="submit" value="Add To Try List"></a>
-<a href="/restaurants/favorites"><input type="submit" value="Add To Favorites"></a>
+    <input class="delete" type="submit" value="delete"/></form>
+    <a id="edit-a" href="/restaurants/<%= restaurant._id %>/edit"><input id="show-edit" type="submit" value="Edit Restaurant"></a>
+    
+    <a href="/restaurants"><button id="back-button">Back</button></a>
+<!-- <a href="/restaurants/try"><input type="submit" value="Add To Try List"></a> -->
+<!-- <a href="/restaurants/favorites"><input type="submit" value="Add To Favorites"></a> -->
 </div>
 </body>
 </html>

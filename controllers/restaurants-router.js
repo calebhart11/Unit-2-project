@@ -47,6 +47,17 @@ router.get('/', (req, res)=> {
     console.log('are you working?')
     })
 });
+//random
+router.get('/random', (req,res) => {
+    Restaurant.find({})
+    .then((restaurants)=> {
+        // console.log(Object.keys(restaurants))
+        // Math.floor(Math.random() * restaurants.length)
+        res.redirect(`/restaurants/${restaurants[Math.floor(Math.random() * restaurants.length)]._id}`)
+    })
+    
+    })
+    
 //New
 router.get('/new', (req, res) => {
     res.render('new.ejs')
@@ -73,6 +84,7 @@ router.delete('/:id', async (req, res) => {
 //create
 router.post('/', (req, res)=> {
     req.body.haveITried = req.body.haveITried === 'on' ? true : false
+    req.body.username = req.session.username
     Restaurant.create(req.body, (err, restaurant) => {
         console.log(req.body)
         res.redirect('/restaurants')

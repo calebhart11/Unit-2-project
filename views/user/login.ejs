@@ -3,22 +3,22 @@
   <%- include("../partials/head.ejs") %>
 
   <body>
-    <h1></h1>
+    <div id="login-h1"><h1>Sign In</h1></div>
     <main>
-      <div>
-        <form action="/user/login" method="post">
-          <fieldset>
-            <legend>Log In</legend>
-            <label
-              >USERNAME: <input type="text" name="username" required />
+      <div class="login-div">
+        <form id="login-form" action="/user/login" method="post">
+            <label>
+              USERNAME: <input type="text" name="username" required />
             </label>
             <label
               >PASSWORD: <input type="password" name="password" required />
             </label>
-            <input type="submit" value="Log In" />
-          </fieldset>
-        </form>
-      </div>
+            <input id="logpage-button" type="submit" value="Log In" />
+            </form>
+            </div>
+          
+       
+      
     </main>
   </body>
 </html>
